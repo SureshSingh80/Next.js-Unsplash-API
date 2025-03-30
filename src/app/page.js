@@ -35,20 +35,20 @@ export default function Home() {
         setNotFound(true);
         setLoading(false);
         setData([]);
-        console.log("No result found");
+        
         return;
       }else{
         setNotFound(false);
         setLoading(false);
         setData(result.results);
-        console.log(result);
+        
            
       }
       
     } catch (error) {
         setError(true);
         setLoading(false);
-       console.log("Error in fetching data");
+        setData([]);
     }
     
   }
@@ -56,7 +56,7 @@ export default function Home() {
   const goToHome = () => {
     window.location.href = '/';
   }
-  {console.log("Errors= ",error)}
+  
   return (
     
   <div>
@@ -64,7 +64,7 @@ export default function Home() {
         
          <div className="mr-[5%] text-pink-600"><HomeIcon onClick={goToHome} className="text-2xl cursor-pointer"></HomeIcon></div>
 
-         <div style={{}} className="flex flex-col  w-[100%]  ">
+         <div  className="flex flex-col  w-[100%]  ">
             <form onSubmit={handleSearch} className="flex justify-center items-center">
              <input  onChange={handleChange} className="border-pink-400 border-2 mx-2 rounded  max-w-2xl w-full       text-pink-600 outline-none  sm:text-xl  pl-2" placeholder="Find/Search Images" type="text"></input>                   
              <button onClick={handleSearch} className="bg-pink-500 px-3 py-1 rounded text-white cursor-pointer">Search</button>           
